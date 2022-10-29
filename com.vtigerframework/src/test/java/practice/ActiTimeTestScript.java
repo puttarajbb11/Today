@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.text.Document;
+
 import org.apache.commons.math3.random.ISAACRandom;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -13,6 +15,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,12 +32,14 @@ public class ActiTimeTestScript {
 		System.setProperty(key, value);
 		
 		WebDriver driver=new ChromeDriver();
+		
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		FileInputStream fis = new FileInputStream("./common_Data.properties");
 		Properties p = new Properties();
 		p.load(fis);
 	
+		 
 		 String url = p.getProperty("ActiURL");
 		String userName = p.getProperty("ActiUser");
 		String password = p.getProperty("Actipwd");

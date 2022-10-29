@@ -1,5 +1,7 @@
 package com.crm.Product;
 
+import static org.testng.Assert.fail;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,6 +21,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.crm.Genric_Utility.BaseClass;
@@ -31,7 +35,7 @@ import com.crm.pom.LoginPage;
 import com.crm.pom.ProductPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
+@Listeners
 public class CreateProductTest extends BaseClass{
 
 	// public static void main(String[] args) throws Throwable {
@@ -54,7 +58,7 @@ public class CreateProductTest extends BaseClass{
 		propage.productName(data);
 		propage.clickOnSave();
 
-
+		
 		String proName =	propage.VerifyProductName();
 
 		if(proName.contains(data))
@@ -65,7 +69,7 @@ public class CreateProductTest extends BaseClass{
 		{
 			System.out.println("Product is not created And Test is ----> Failed");
 		}
-		
+		Assert.fail();
 		//home.ClickOnAdministraton();
 		//home.ClickOnSigOut(driver);
 

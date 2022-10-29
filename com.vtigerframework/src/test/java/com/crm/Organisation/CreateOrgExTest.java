@@ -30,7 +30,7 @@ import com.crm.Genric_Utility.WebDriver_Utility;
 import com.crm.pom.HomePage;
 import com.crm.pom.OrganisationPage;
 import com.crm.pom.VerificationAndValidation;
-@Listeners(com.crm.Genric_Utility.ListenerFeature.class)
+//@Listeners(com.crm.Genric_Utility.ListenerFeature.class)
 public class CreateOrgExTest extends BaseClass {
 	
 	@Test
@@ -62,11 +62,7 @@ public void CreateOrganisation() throws Throwable
 		VerificationAndValidation Vorg=new VerificationAndValidation( driver);
 		Vorg.VerifyAndValidOrgName(driver,  name);
 		
-		//home.ClickOnAdministraton();
-
-		// clicking on SigOut
-		//home.ClickOnSigOut(driver);
-		//soft.assertAll();
+		
 }
 		
 

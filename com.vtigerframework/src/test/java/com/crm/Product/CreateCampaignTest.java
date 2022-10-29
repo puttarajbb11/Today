@@ -1,6 +1,7 @@
 package com.crm.Product;
 
 import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
@@ -21,6 +22,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.crm.Genric_Utility.BaseClass;
@@ -34,6 +36,8 @@ import com.crm.pom.LoginPage;
 import com.crm.pom.VerificationAndValidation;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+@Listeners
 public class CreateCampaignTest extends BaseClass 
 {
 	@Test(groups = {"RegrassionTest"})

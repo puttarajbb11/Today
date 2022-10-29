@@ -9,15 +9,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class DataProviderExTest
+ public class DataProviderExTest
 
-{
+ {
 	@Test(dataProvider = "dataProvider_Test")
 	public void contactDetails(String firstname, String lastname, String Mobile)
 	{
-		String key = "webdriver.chrome.driver";
+		/*String key = "webdriver.chrome.driver";
 		String value = "./chromedriver.exe";
-		System.setProperty(key, value);
+		System.setProperty(key, value);*/
 		WebDriver driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://localhost:8888/");
@@ -34,6 +34,7 @@ public class DataProviderExTest
 		driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
 		driver.quit();
 	}
+	
 	@DataProvider
 	public Object [][] dataProvider_Test()
 	{

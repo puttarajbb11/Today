@@ -1,12 +1,18 @@
 package com.crm.Genric_Utility;
 
+import java.io.File;
+import java.io.IOException;
 import java.security.PublicKey;
+import java.sql.Date;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +23,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mysql.jdbc.Driver;
+
+import net.bytebuddy.build.ToStringPlugin.Exclude;
 
 		public class WebDriver_Utility {
 	/**
@@ -171,4 +179,25 @@ import com.mysql.jdbc.Driver;
 		 wait.until(ExpectedConditions.elementToBeClickable(element));
 		 
 	 }
+	 
+	 public String takeSceenShortOfPage(WebDriver driver, String screenshotName) throws IOException
+	 {
+		   
+		java.util.Date d = new java.util.Date();
+		
+		String date = d.toString().replace(" ", ".").replace(":","-");
+		
+		TakesScreenshot ts=(TakesScreenshot) driver;
+		File source =ts.getScreenshotAs(OutputType.FILE);
+		screenshotName = screenshotName+date;
+		
+		File destination = new File("./ScreenShort/"+screenshotName+" "+".png");
+		FileUtils.copyFile(source, destination);
+		System.out.println("Screenshort taken sucessfully");
+		return destination.getAbsolutePath();
+		
+	 }
+	 
+	 
+	
 }
